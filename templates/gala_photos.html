@@ -1,0 +1,48 @@
+<!-- templates/gala_photos.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gala Photos - Graduation Gala 2026</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="logo-container-left">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="UNZA Logo" class="logo">
+    </div>
+    <div class="logo-container-right">
+        <img src="{{ url_for('static', filename='images/ucs-logo.jpg') }}" alt="UCS Logo" class="logo">
+    </div>
+    <header>
+        <h2 class="section-title">Previous Graduation Gala</h2>
+    </header>
+    <div class="photos-container">
+        {% for photo in photos %}
+        <div class="photo-card">
+            <img src="{{ url_for('static', filename='images/' + photo.filename) }}" alt="Gala Photo" />
+            {% if photo.focused_couple or photo.random_couple %}
+            <div class="caption">
+                {% if photo.focused_couple %}
+                <strong>Focused Couple:</strong> {{ photo.focused_couple }}
+                {% elif photo.random_couple %}
+                <strong>Random Couple</strong>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="end-advertisement">
+        <h3>End of Advertisement</h3>
+        <button onclick="window.location.href='{{ url_for('dashboard') }}'">Back to Dashboard</button>
+    </div>
+    <footer>
+        <p>2025/2026 Graduation Gala. <span class="reserved">Reserved Rights</span></p>
+        <p><a href="#">--JJ.SAKALA</a></p>
+    </footer>
+</body>
+
+</html>

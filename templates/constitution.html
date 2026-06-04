@@ -1,0 +1,90 @@
+<!-- templates/constitution.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UCS Constitution - Graduation Gala</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .fullscreen-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 65%;
+            height: 100%;
+            background-image: url("{{ url_for('static', filename='images/ucs_constitution.jpg') }}");
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .overlay-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 320px;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            box-sizing: border-box;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .proceed-button {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .proceed-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #45a049, #1b5e20);
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fullscreen-bg"></div>
+    <div class="overlay-container">
+        <h2>Current UCS Constitutional Executives</h2>
+        <button class="proceed-button" onclick="window.location.href='{{ url_for('dashboard') }}'">Continue to
+            Dashboard</button>
+    </div>
+</body>
+
+</html>

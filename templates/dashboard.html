@@ -1,0 +1,78 @@
+<!-- templates/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gala Dashboard - Graduation Gala 2025/2026</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="logo-container-left">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="UNZA Logo" class="logo">
+    </div>
+    <div class="logo-container-right">
+        <img src="{{ url_for('static', filename='images/ucs-logo.jpg') }}" alt="UCS Logo" class="logo">
+    </div>
+    <header>
+        <h1 class="animated-header">Graduation Gala 2025/2026</h1>
+        <nav>
+            <button onclick="location.href='{{ url_for('gala_photos') }}'">View Gala Photos</button>
+        </nav>
+    </header>
+    <main>
+        <section class="hero-section">
+            <h2>The Premiere Academic Event of the Year</h2>
+            <p class="hero-subtitle">Join us in celebrating academic excellence, networking with industry leaders, and
+                supporting the leaders of tomorrow.</p>
+        </section>
+
+        <section class="highlights-section">
+            <h3 class="section-title">Event Highlights</h3>
+            <div class="highlight-cards">
+                <div class="highlight-card">
+                    <img src="{{ url_for('static', filename='images/able-chungu.jpg') }}" alt="Red Carpet">
+                    <h4>Red Carpet Experience</h4>
+                    <p>Walk the red carpet and capture unforgettable moments with professional photography.</p>
+                </div>
+                <div class="highlight-card">
+                    <img src="{{ url_for('static', filename='images/neo-slay.jpg') }}" alt="Networking">
+                    <h4>Exclusive Networking</h4>
+                    <p>Connect with peers, esteemed alumni, the great musical artists and distinguished guests from
+                        various industries.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="sponsorship-section">
+            <div class="sponsorship-content">
+                <h3 class="section-title text-light">Support the Vision</h3>
+                <p>By sponsoring the Graduation Gala, you invest in the future. Your contributions help fund
+                    scholarships, event logistics, and ensure a memorable night for all graduates.</p>
+
+                <div class="sponsorship-tiers">
+                    <div class="tier-card gold-tier">
+                        <h4>Gold Sponsor</h4>
+                        <p>Premium logo placement on all media, VIP table seating, and stage recognition.</p>
+                    </div>
+                    <div class="tier-card silver-tier">
+                        <h4>Silver Sponsor</h4>
+                        <p>Logo placement in the event program and dedicated social media shoutouts.</p>
+                    </div>
+                </div>
+
+                <button class="cta-button"
+                    onclick="alert('Contact us at sponsorship@unzagala.edu to request a package!')">Become a
+                    Sponsor</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>2025/2026 Graduation Gala. <span class="reserved">Reserved Rights</span></p>
+        <p><a href="#">--JJ.SAKALA</a></p>
+    </footer>
+</body>
+
+</html>
