@@ -45,7 +45,15 @@ header {
 }
 
 /* Logos */
-.logo { height: 60px; max-width: 100px; object-fit: contain; }
+.logo { 
+    height: 60px; 
+    width: 60px;
+    object-fit: contain; 
+    border-radius: 50%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+}
 .logo-container-left { position: fixed; top: 10px; left: 10px; z-index: 1000; }
 .logo-container-right { position: fixed; top: 10px; right: 10px; z-index: 1000; }
 
