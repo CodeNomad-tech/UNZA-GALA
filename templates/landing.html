@@ -8,19 +8,25 @@
     <title>Graduation Gala 2025/2026</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
-            height: 100%;
+            min-height: 100vh;
         }
+
         body {
             background-image: url("{{ url_for('static', filename='images/mine.jpg') }}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
         }
+
         .overlay {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -28,6 +34,7 @@
             background: rgba(0, 0, 0, 0.4);
             z-index: -1;
         }
+
         /* Animation for the welcome text */
         @keyframes fadeInUp {
             from {
@@ -47,7 +54,7 @@
             text-align: center;
             margin-top: 35vh;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
             animation: fadeInUp 2s ease-in-out;
         }
 
@@ -62,11 +69,19 @@
             color: white;
             border-radius: 8px;
             transition: background-color 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         .start-button:hover {
             background-color: #45a049;
+        }
+
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
         }
     </style>
 </head>
@@ -81,6 +96,10 @@
     </div>
     <div class="welcome-text">Welcome to the Graduation Gala 2025/2026</div>
     <button class="start-button" onclick="window.location.href='{{ url_for('constitution') }}'">Enter</button>
+    <footer>
+        <p>2025/2026 Graduation Gala. <span class="reserved">Reserved Rights</span></p>
+        <p><a href="#">--JJ.SAKALA</a></p>
+    </footer>
 </body>
 
 </html>
