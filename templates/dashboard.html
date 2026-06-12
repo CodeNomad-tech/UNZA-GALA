@@ -13,7 +13,8 @@
     <header>
         <h1 class="animated-header">Graduation Gala 2025/2026</h1>
         <nav>
-            <button onclick="location.href='{{ url_for('gala_photos') }}'">View Gala Photos</button>
+            <button onclick="location.href='{{ url_for('gala_photos') }}'">Previous Graduation Gala</button>
+            <button onclick="location.href='{{ url_for('gala_video') }}'">Play video</button>
         </nav>
     </header>
     <main>
@@ -32,7 +33,7 @@
                     <p>Walk the red carpet and capture unforgettable moments with professional photography.</p>
                 </div>
                 <div class="highlight-card">
-                    <img src="{{ url_for('static', filename='images/neo-slay.jpg') }}" alt="Networking">
+                    <img src="{{ url_for('static', filename='images/neo-slayer.jpg') }}" alt="Networking">
                     <h4>Exclusive Networking</h4>
                     <p>Connect with peers, esteemed alumni, the great musical artists and distinguished guests from
                         various industries.</p>

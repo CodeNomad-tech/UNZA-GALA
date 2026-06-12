@@ -1,0 +1,137 @@
+<!-- templates/gala_video.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gala Video - Graduation Gala 2026</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .video-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: var(--primary-color);
+            padding: 20px;
+        }
+
+        .video-wrapper {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: #000;
+        }
+
+        .end-advert-container {
+            margin-top: 40px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            pointer-events: none;
+        }
+
+        .end-advert-container.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .end-advert-container h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .end-advert-button {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: 2px solid var(--accent-color);
+            border-radius: 4px;
+            background-color: transparent;
+            color: var(--accent-color);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .end-advert-button:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .proceed-next-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            font-size: 1em;
+            cursor: pointer;
+            border: 2px solid #ffd700;
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #ffd700;
+            font-family: 'Inter', sans-serif;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .proceed-next-button:hover {
+            background-color: #ffd700;
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-container">
+        <div class="video-wrapper">
+            <video id="galaVideo" controls autoplay muted playsinline>
+                <source src="{{ url_for('serve_gala_video') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="end-advert-container" id="endAdvertContainer">
+            <h3>End of Advert</h3>
+            <button class="end-advert-button" onclick="goToBlankScreen()">Continue</button>
+        </div>
+
+        <a href="{{ url_for('gala_photos') }}" class="proceed-next-button">Proceed to the next page</a>
+    </div>
+
+    <script>
+        const video = document.getElementById('galaVideo');
+        const endAdvertContainer = document.getElementById('endAdvertContainer');
+
+        // Show the "End of Advert" button when video ends
+        video.addEventListener('ended', function () {
+            endAdvertContainer.classList.add('show');
+        });
+
+        function goToBlankScreen() {
+            // Navigate to the gala photos page
+            window.location.href = '{{ url_for('gala_photos') }}';
+        }
+    </script>
+</body>
+
+</html>

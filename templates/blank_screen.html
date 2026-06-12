@@ -1,0 +1,59 @@
+<!-- templates/blank_screen.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blank Screen</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .blank-content {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .blank-content p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .back-button {
+            margin-top: 30px;
+            padding: 12px 30px;
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            background-color: transparent;
+            color: rgba(255, 215, 0, 0.7);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .back-button:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.9);
+            color: rgba(255, 215, 0, 0.9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blank-content">
+        <p>Thank you for watching</p>
+        <button class="back-button" onclick="window.location.href='{{ url_for('dashboard') }}'">Back to Dashboard</button>
+    </div>
+</body>
+
+</html>

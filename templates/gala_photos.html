@@ -17,21 +17,26 @@
         {% for photo in photos %}
         <div class="photo-card">
             <img src="{{ url_for('static', filename='images/' + photo.filename) }}" alt="Gala Photo" />
-            {% if photo.focused_couple or photo.random_couple %}
+            {% if photo.focused_couple or photo.random_couple or photo.Special_Guest %}
             <div class="caption">
-                {% if photo.focused_couple %}
+            {% if photo.focused_couple %}
                 <strong>Focused Couple:</strong> {{ photo.focused_couple }}
-                {% elif photo.random_couple %}
+            {% elif photo.single_gent %}
+                <strong>{{ photo.single_gent }}</strong>
+            {% elif photo.Motivational_Speaker %}
+                <strong>Guest speaker:</strong> {{ photo.Motivational_Speaker }}
+            {% elif photo.Main_MC %}
+                <strong>Main MC:</strong> {{ photo.Main_MC }}
+            {% elif photo.random_couple %}
                 <strong>Random Couple</strong>
-                {% endif %}
+            {% endif %}
             </div>
             {% endif %}
         </div>
         {% endfor %}
     </div>
-    <div class="end-advertisement">
-        <h3>End of Advertisement</h3>
-        <button onclick="window.location.href='{{ url_for('dashboard') }}'">Back to Dashboard</button>
+    <div style="text-align: center; margin: 40px 0;">
+        <button onclick="window.location.href='{{ url_for('advert') }}'" style="padding: 12px 24px; background: transparent; color: #ffd700; border: 2px solid #ffd700; cursor: pointer; text-transform: uppercase; font-weight: bold; border-radius: 4px;">Next Page</button>
     </div>
     <footer>
         <p>©2025/2026 Graduation Gala. Reserved Rights</p>

@@ -1,0 +1,56 @@
+<!-- templates/advert.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advertisement - Graduation Gala</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: var(--primary-color, #000);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .advert-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .advert-container img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="advert-container">
+        <img src="{{ url_for('static', filename='images/Advert.jpeg') }}" alt="Advertisement">
+    </div>
+
+    <div class="end-advertisement">
+        <h3>For payments contact: +260779917124</h3>
+        <h4>For more information contact: +260 776543688 or +260 779833005</h4>
+        <button onclick="window.location.href='{{ url_for('dashboard') }}'">Back to Dashboard</button>
+    </div>
+    <footer>
+        <p>©2025/2026 Graduation Gala.</p>
+        <p>Reserved Rights</p>
+        <p><a href="#">--JJ.SAKALA</a></p>
+    </footer>
+</body>
+
+</html>
